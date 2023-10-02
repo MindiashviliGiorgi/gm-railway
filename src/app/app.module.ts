@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import { HomePageDecorationComponent } from './home-page-decoration/home-page-decoration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    ReservationFormComponent,
+    HomePageDecorationComponent
   ],
   imports: [
     BrowserModule,
