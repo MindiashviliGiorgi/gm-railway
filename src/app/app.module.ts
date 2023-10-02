@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { HomePageDecorationComponent } from './home-page-decoration/home-page-decoration.component';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RailListPageComponent } from './rail-list-page/rail-list-page.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { HomePageDecorationComponent } from './home-page-decoration/home-page-de
     HeaderComponent,
     HomePageComponent,
     ReservationFormComponent,
-    HomePageDecorationComponent
+    HomePageDecorationComponent,
+    FooterComponent,
+    RailListPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
