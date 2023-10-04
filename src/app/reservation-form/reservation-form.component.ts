@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ReservationFormComponent {
   myForm: FormGroup;
 
-  constructor(private fb : FormBuilder){
+  constructor(private fb : FormBuilder, private router : Router){
     this.myForm = this.fb.group({
       fromWhere : ['', Validators.required],
       where : ['', Validators.required],
@@ -25,6 +27,7 @@ export class ReservationFormComponent {
     if(this.myForm.valid){
       const formData = this.myForm;
       console.log(formData.value)
+      this.router.navigate(['/railsList'])
     } else {
       this.myForm.markAllAsTouched()
     }

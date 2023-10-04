@@ -10,6 +10,7 @@ import { HomePageDecorationComponent } from './home-page-decoration/home-page-de
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RailListPageComponent } from './rail-list-page/rail-list-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RailListPageComponent } from './rail-list-page/rail-list-page.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
