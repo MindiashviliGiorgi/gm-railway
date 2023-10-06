@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-
+import { TicketService } from '../ticket.service';
 
 @Component({
   selector: 'app-reservation-form',
@@ -10,27 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./reservation-form.component.scss']
 })
 export class ReservationFormComponent {
-  myForm: FormGroup;
 
-  constructor(private fb : FormBuilder, private router : Router){
-    this.myForm = this.fb.group({
-      fromWhere : ['', Validators.required],
-      where : ['', Validators.required],
-      date : ['', Validators.required],
-      people : ['', Validators.required],
-    })
-  }
+  constructor(private ticketService : TicketService){}
 
   ngOnInit():void {}
 
-  onSubmit(){
-    if(this.myForm.valid){
-      const formData = this.myForm;
-      console.log(formData.value)
-      this.router.navigate(['/railsList'])
-    } else {
-      this.myForm.markAllAsTouched()
-    }
+  onSubmitFirstHalf(){
+    const firstHalfData = {
+      id : '',
+      from : '',
+      to : '',
+      date : '',
+      number : 0,
+    };
+    this.ticketService.setTicketData(firstHalfData)
   }
 
 }
