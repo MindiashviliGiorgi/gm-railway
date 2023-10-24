@@ -9,20 +9,24 @@ import { TicketService } from '../ticket.service';
   styleUrls: ['./reservation-form.component.scss']
 })
 export class ReservationFormComponent {
+  myForm: any;
 
-  constructor(private ticketService : TicketService){}
+  constructor(private formBuilder: FormBuilder, private router : Router) {
+    this.myForm = this.formBuilder.group({
+      from: [''],
+      to: [''],
+      date: [''],
+      people: [0],
+    });
+  }
 
   ngOnInit():void {}
 
-  onSubmitFirstHalf(){
-    const firstHalfData = {
-      id : '',
-      from : '',
-      to : '',
-      date : '',
-      number : 0,
-    };
-    this.ticketService.setTicketData(firstHalfData)
+
+  onSubmit(){
+    console.log(this.myForm.value)
+    this.router.navigate(['/railsList'])
+
   }
 
 }

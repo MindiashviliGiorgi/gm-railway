@@ -64,16 +64,23 @@
     .section-list {
       width: 100%;
       height: auto;
-      padding: 10px 30px;
+      padding: 10px 0px;
       ul {
         display: flex;
         flex-direction: row;
         column-gap: 100px;
         align-items: center;
+        background-color: #cacaca;
+        padding: 10px 30px;
         li {
           list-style: none;
           width: 100%;
           flex: 1;
+          .list-info {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+          }
         }
       }
     }

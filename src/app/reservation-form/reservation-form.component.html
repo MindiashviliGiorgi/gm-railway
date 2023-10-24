@@ -1,21 +1,21 @@
 <div class="reservation-form-main">
   <div class="form-container">
-    <h3>დაჯავშნეთ მატარებლის ბილეთი</h3>
-    <form>
+    <h3>Book a train ticket</h3>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="from-where">
         <select formControlName="from">
-          <option value="">საიდან</option>
-          <option value="ფოთი">ფოთი</option>
-          <option value="თბილისი">თბილისი</option>
-          <option value="ბათუმი">ბათუმი</option>
+          <option value="">From where</option>
+          <option value="poti">Poti</option>
+          <option value="თბილისი">Tbilisi</option>
+          <option value="ბათუმი">Batumi</option>
         </select>
       </div>
       <div class="where">
         <select formControlName="to">
-          <option value="">სად</option>
-          <option value="ფოთი">ფოთი</option>
-          <option value="თბილისი">თბილისი</option>
-          <option value="ბათუმი">ბათუმი</option>
+          <option value="">Where</option>
+          <option value="poti">Poti</option>
+          <option value="tbilisi">Tbilisi</option>
+          <option value="batumi">Batumi</option>
         </select>
       </div>
       <div class="departure-date">
@@ -26,7 +26,7 @@
           placeholder="მგზავრების რაოდენობა">
       </div>
       <div class="btn">
-        <button type="submit">მატარებლის მოძებნა</button>
+        <button type="submit">Find a train</button>
       </div>
     </form>
   </div>
