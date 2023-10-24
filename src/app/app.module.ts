@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RailListPageComponent } from './rail-list-page/rail-list-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PassengersDataPageComponent } from './passengers-data-page/passengers-data-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReservationFormComponent,
     HomePageDecorationComponent,
     FooterComponent,
-    RailListPageComponent
+    RailListPageComponent,
+    PassengersDataPageComponent
   ],
   imports: [
     BrowserModule,

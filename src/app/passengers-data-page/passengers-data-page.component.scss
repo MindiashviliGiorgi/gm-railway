@@ -1,0 +1,88 @@
+.passenger-data-main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0px;
+  .title {
+    width: 100%;
+    height: 200px;
+    background-color: #294985;
+    padding: 20px 150px;
+    display: flex;
+    align-items: center;
+    h1 {
+      color: #fff;
+      font-weight: 100;
+      letter-spacing: 0.5px;
+    }
+  }
+  .section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 150px;
+    column-gap: 20px;
+    .section-left {
+      width: 100%;
+      flex: 2;
+      height: auto;
+      .section-left-title {
+        h3 {
+          font-size: 30px;
+          color: #000;
+        }
+      }
+      .details {
+        width: 100%;
+        height: auto;
+        ul {
+          display: flex;
+          flex-direction: row;
+          column-gap: 100px;
+          align-items: center;
+          background-color: #e4e4e4;
+          padding: 10px 30px;
+          li {
+            list-style: none;
+            width: 100%;
+            flex: 1;
+            button {
+              background-color: #294985;
+              color: #fff;
+              border: none;
+              outline: none;
+              padding: 5px 10px;
+              font-size: 16px;
+              border-radius: 4px;
+              cursor: pointer;
+              transition: 0.2s;
+              &:hover {
+                background-color: #2e5eb7;
+                transition: 0.2s;
+              }
+              &:active {
+                transition: 0s;
+                background-color: #294985;
+              }
+            }
+            .list-info {
+              display: flex;
+              flex-direction: column;
+              row-gap: 15px;
+            }
+          }
+        }
+      }
+    }
+    .section-right {
+      flex: 1;
+      width: 100%;
+      height: auto;
+
+    }
+  }
+}
