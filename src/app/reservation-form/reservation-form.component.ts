@@ -24,9 +24,21 @@ export class ReservationFormComponent {
 
 
   onSubmit(){
-    console.log(this.myForm.value)
-    this.router.navigate(['/railsList'])
+    const formData = this.myForm.value;
 
+    // Check if the data exists in localStorage
+    const storedDataString = localStorage.getItem('formData');
+    const storedData = storedDataString ? JSON.parse(storedDataString) : {};
+  
+    // Merge the new form data with existing data
+    const mergedData = { ...storedData, ...formData };
+  
+    // Save the merged data back to localStorage
+    localStorage.setItem('formData', JSON.stringify(mergedData));
+  
+    console.log(formData);
+  
+    this.router.navigate(['/railsList']);
   }
 
 }
