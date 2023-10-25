@@ -12,20 +12,20 @@
         <ul>
           <li>
             <div class="list-info">
-              <p>#812</p>
+              <p>#{{ storedData.trainName}}</p>
               <p> Express</p>
             </div>
           </li>
           <li>
             <div class="list-info">
-              <p>00:35</p>
-              <p>sa</p>
+              <p>{{ storedData.selectedHour }}</p>
+              <p>{{ storedData.from}}</p>
             </div>
           </li>
           <li>
             <div class="list-info">
-              <p>05:47</p>
-              <p>sd</p>
+              <p>{{ storedData.sunsetTime }}</p>
+              <p>{{ storedData.to }}</p>
             </div>
           </li>
         </ul>
@@ -48,13 +48,13 @@
         <div class="passengers-information-title">
           <h3>Passenger Information</h3>
         </div>
-        <div class="passengers-information-form">
-          <h3>Passenger 1</h3>
-          <form>
-            <input type="name" placeholder="First Name">
-            <input type="name" placeholder="Last Name">
-            <input type="number" placeholder="Personal Number">
-            <button>Choice Place</button>
+        <div class="passengers-information-form" *ngFor="let passenger of passengersArray">
+          <h3>Passenger {{ passenger.index + 1 }}</h3>
+          <form [formGroup]="passenger.passengerForm" (ngSubmit)="addPassenger()">
+            <input type="name" formControlName="firstName" placeholder="First Name">
+            <input type="name" formControlName="lastName" placeholder="Last Name">
+            <input type="number" formControlName="personalNumber" placeholder="Personal Number">
+            <button type="submit">Choice Place</button>
           </form>
         </div>
       </div>

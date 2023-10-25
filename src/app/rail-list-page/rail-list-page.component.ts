@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-rail-list-page',
@@ -15,7 +15,7 @@ export class RailListPageComponent {
   form808: FormGroup;
   form804: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router : Router) {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString);
@@ -53,33 +53,43 @@ export class RailListPageComponent {
   // Function to update main form with information from train #812
   updateFormWithTrain812Info() {
     if (this.form812) {
-      this.myForm.patchValue({
-        selectedHour: this.form812.get('selectedHour')?.value,
-        sunsetTime: this.form812.get('sunsetTime')?.value,
-        trainName: this.form812.get('trainName')?.value,
-      });
+      this.storedData.selectedHour = this.form812.get('selectedHour')?.value;
+      this.storedData.sunsetTime = this.form812.get('sunsetTime')?.value;
+      this.storedData.trainName = this.form812.get('trainName')?.value;
     }
-    console.log(this.myForm.value)
+  
+    // Now update the localStorage with the updated storedData
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+  
+    this.router.navigate(['/passengersData']);
+    console.log(this.storedData);
   }
+  
   updateFormWithTrain808Info() {
     if (this.form808) {
-      this.myForm.patchValue({
-        selectedHour: this.form808.get('selectedHour')?.value,
-        sunsetTime: this.form808.get('sunsetTime')?.value,
-        trainName: this.form808.get('trainName')?.value,
-      });
+      this.storedData.selectedHour = this.form808.get('selectedHour')?.value;
+      this.storedData.sunsetTime = this.form808.get('sunsetTime')?.value;
+      this.storedData.trainName = this.form808.get('trainName')?.value;
     }
-    console.log(this.myForm.value)
+  
+    // Now update the localStorage with the updated storedData
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+  
+    this.router.navigate(['/passengersData']);
+    console.log(this.storedData);
   }
+
   updateFormWithTrain804Info() {
     if (this.form804) {
-      this.myForm.patchValue({
-        selectedHour: this.form804.get('selectedHour')?.value,
-        sunsetTime: this.form804.get('sunsetTime')?.value,
-        trainName: this.form804.get('trainName')?.value,
-      });
+        this.storedData.selectedHour = this.form804.get('selectedHour')?.value;
+        this.storedData.sunsetTime = this.form804.get('sunsetTime')?.value;
+        this.storedData.trainName = this.form804.get('trainName')?.value;
     }
-    console.log(this.myForm.value)
+
+    localStorage.setItem('formData', JSON.stringify(this.storedData))
+
+    this.router.navigate(['/passengersData'])
+    console.log(this.storedData)
   }
 
 }
