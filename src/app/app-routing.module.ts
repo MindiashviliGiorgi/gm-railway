@@ -7,7 +7,7 @@ import { PassengersDataPageComponent } from './passengers-data-page/passengers-d
 const routes: Routes = [
   {
     path : '',
-    component : HomePageComponent
+    component : PassengersDataPageComponent
   },
   {
     path : 'railsList',
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path : 'passengersData',
-    component : PassengersDataPageComponent
+    component : HomePageComponent
   }
 ];
 

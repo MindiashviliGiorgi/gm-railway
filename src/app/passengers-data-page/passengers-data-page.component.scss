@@ -3,7 +3,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  row-gap: 0px;
+  row-gap: 5px;
   .title {
     width: 100%;
     height: 200px;
@@ -21,19 +21,25 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    align-items: top;
     justify-content: space-between;
-    padding: 20px 150px;
+    padding: 30px 150px;
     column-gap: 20px;
     .section-left {
       width: 100%;
       flex: 2;
       height: auto;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      box-shadow: 0px 0px 3px #5b5b5b;
+      padding: 30px 50px;
+      border-radius: 10px;
       .section-left-title {
         h3 {
           font-size: 30px;
           color: #000;
+          font-weight: 100;
         }
       }
       .details {
@@ -77,12 +83,200 @@
           }
         }
       }
+      .decoration-line {
+        width: 100%;
+        height: 2px;
+        border-bottom: 2px dashed #b2b2b2;
+      }
+      .contact-form-main {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .contact-form-title {
+          h3 {
+            font-size: 30px;
+            font-weight: 100;
+          }
+        }
+        .contact-form-body {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            column-gap: 10px;
+            input {
+              width: 100%;
+              padding: 7px 10px;
+              border: 1px solid #000;
+              outline: none;
+              font-size: 17px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+      .passengers-information-main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        .passengers-information-title {
+          h3 {
+            font-size: 30px;
+            color: #000;
+            font-weight: 100;
+          }
+        }
+        .passengers-information-form {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          h3 {
+            font-size: 25px;
+            font-weight: 100;
+            color: #000;
+          }
+          form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            column-gap: 10px;
+            input {
+              width: 100%;
+              padding: 7px 10px;
+              border: 1px solid #000;
+              outline: none;
+              font-size: 17px;
+              border-radius: 4px;
+            }
+            button {
+              width: 500px;
+              height: 35px;
+              background-color: #294985;
+              color: #fff;
+              font-size: 18px;
+              border: none;
+              outline: none;
+              border-radius: 4px;
+              cursor: pointer;
+              transition: 0.3s;
+              &:hover {
+                background-color: #2e5eb7;
+                transition: 0.3s;
+              }
+              &:active {
+                background-color: #294985;
+                transition: 0s;
+              }
+            }
+          }
+        }
+      }
     }
     .section-right {
       flex: 1;
       width: 100%;
-      height: auto;
-
+      height: 400px;
+      box-shadow: 0px 0px 3px #5b5b5b;
+      border-radius: 10px;
+      .invoice-main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        padding: 20px 40px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        .invoice-title {
+          width: 100%;
+          text-align: center;
+          h3 {
+            font-size: 24px;
+            color: #2e5eb7;
+          }
+        }
+        .invoice-options {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          padding-bottom: 5px;
+          p {
+            font-size: 18px;
+          }
+          .invoice-decore {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.5px;
+            background-color: #000;
+          }
+        }
+        .total-amount {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 4px 10px;
+          border-radius: 6px;
+          border: 1px solid #000;
+          background-color: #fff;
+          p {
+            font-size: 18px;
+          }
+        }
+        .rules {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: row;
+          column-gap: 5px;
+          align-items: center;
+        }
+        .ticket-register-btn {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: auto;
+          button {
+            font-size: 19px;
+            color: #fff;
+            background-color: #2e5eb7;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 8px 20px;
+            transition: 0.3s;
+            &:hover {
+              background-color: #3e78e5;
+              transition: 0.3s;
+              transform: translateY(-2px);
+            }
+            &:active {
+              background-color: #294985;
+              transition: 0s;
+            }
+          }
+        }
+      }
     }
   }
 }
