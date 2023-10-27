@@ -48,14 +48,16 @@
         <div class="passengers-information-title">
           <h3>Passenger Information</h3>
         </div>
-        <div class="passengers-information-form" *ngFor="let passenger of passengersArray; let i = index">
-          <h3>Passenger {{ i + 1 }}</h3>
-          <form [formGroup]="passenger.passengerForm" (ngSubmit)="addPassenger()">
-            <input type="text" formControlName="firstName" placeholder="First Name">
-            <input type="text" formControlName="lastName" placeholder="Last Name">
-            <input type="number" formControlName="personalNumber" placeholder="Personal Number">
-            <button type="submit">Choice Place</button>
-          </form>
+        <div class="passengers-information-form">
+          <h3>Passenger 1</h3>
+          <form [formGroup]="myForm" (ngSubmit)="addPassenger()">
+            <div class="test" formGroupName="passenger">
+              <input type="text" placeholder="First Name" formControlName="firstName">
+              <input type="text" placeholder="Last Name" formControlName="lastName">
+              <input type="number" placeholder="Personal Number" formControlName="personalNumber">
+            </div>
+            <button type="submit">Add Passenger</button>
+          </form>          
         </div>
         
       </div>

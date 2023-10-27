@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-passengers-data-page',
@@ -7,8 +7,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./passengers-data-page.component.scss']
 })
 export class PassengersDataPageComponent implements OnInit {
+
   storedData: any = {};
-  passengersArray: { index: number, passengerForm: FormGroup }[] = [];
+  myForm: FormGroup; // The main form
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
@@ -16,26 +17,35 @@ export class PassengersDataPageComponent implements OnInit {
       this.storedData = JSON.parse(storedDataString);
     }
 
-    if (!this.storedData.passengersArray) {
-      this.storedData.passengersArray = [];
-    }
-  }
-
-  ngOnInit(): void {
-    // Create form groups for each passenger based on the number of people
-    for (let i = 0; i < this.storedData.people; i++) {
-      const passengerForm = this.formBuilder.group({
+    this.myForm = this.formBuilder.group({
+      from: [this.storedData.from],
+      to: [this.storedData.to],
+      date: [this.storedData.date],
+      people: [this.storedData.people],
+      selectedHour: [this.storedData.selectedHour],
+      sunsetTime: [this.storedData.sunsetTime],
+      trainName: [this.storedData.trainName],
+      passenger: this.formBuilder.group({
         firstName: [''],
         lastName: [''],
         personalNumber: [''],
-      });
+      })
+    });
 
-      this.passengersArray.push({ index: i, passengerForm: passengerForm });
-    }
-  }
-
-  addPassenger() {
     
   }
 
+  ngOnInit(): void {
+
+  }
+
+  addPassenger() {
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+  
+    console.log(this.myForm.value);
+  }
+
+  
+  
+  
 }
