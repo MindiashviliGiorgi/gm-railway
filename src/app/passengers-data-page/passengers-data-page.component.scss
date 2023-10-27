@@ -149,36 +149,39 @@
           }
           form {
             width: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            column-gap: 10px;
-            input {
+            .passenger-box {
               width: 100%;
-              padding: 7px 10px;
-              border: 1px solid #000;
-              outline: none;
-              font-size: 17px;
-              border-radius: 4px;
-            }
-            button {
-              width: 500px;
-              height: 35px;
-              background-color: #294985;
-              color: #fff;
-              font-size: 18px;
-              border: none;
-              outline: none;
-              border-radius: 4px;
-              cursor: pointer;
-              transition: 0.3s;
-              &:hover {
-                background-color: #2e5eb7;
-                transition: 0.3s;
+              display: flex;
+              align-items: center;
+              flex-direction: row;
+              column-gap: 10px;
+              input {
+                width: 100%;
+                padding: 7px 10px;
+                border: 1px solid #000;
+                outline: none;
+                font-size: 17px;
+                border-radius: 4px;
               }
-              &:active {
+              button {
+                width: 700px;
+                height: 35px;
                 background-color: #294985;
-                transition: 0s;
+                color: #fff;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                  background-color: #2e5eb7;
+                  transition: 0.3s;
+                }
+                &:active {
+                  background-color: #294985;
+                  transition: 0s;
+                }
               }
             }
           }

@@ -58,11 +58,10 @@ export class RailListPageComponent {
       this.storedData.trainName = this.form812.get('trainName')?.value;
     }
   
-    // Now update the localStorage with the updated storedData
+    // update the localStorage with the updated storedData
     localStorage.setItem('formData', JSON.stringify(this.storedData));
   
     this.router.navigate(['/passengersData']);
-    console.log(this.storedData);
   }
   
   updateFormWithTrain808Info() {
@@ -72,11 +71,10 @@ export class RailListPageComponent {
       this.storedData.trainName = this.form808.get('trainName')?.value;
     }
   
-    // Now update the localStorage with the updated storedData
+    // update the localStorage with the updated storedData
     localStorage.setItem('formData', JSON.stringify(this.storedData));
   
     this.router.navigate(['/passengersData']);
-    console.log(this.storedData);
   }
 
   updateFormWithTrain804Info() {
@@ -89,7 +87,6 @@ export class RailListPageComponent {
     localStorage.setItem('formData', JSON.stringify(this.storedData))
 
     this.router.navigate(['/passengersData'])
-    console.log(this.storedData)
   }
 
 }

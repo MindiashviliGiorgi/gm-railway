@@ -15,8 +15,9 @@ export class PassengersDataPageComponent implements OnInit {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString);
-    }
-
+    };
+    
+    // in MyForm add passenger Array
     this.myForm = this.formBuilder.group({
       from: [this.storedData.from],
       to: [this.storedData.to],
@@ -25,27 +26,32 @@ export class PassengersDataPageComponent implements OnInit {
       selectedHour: [this.storedData.selectedHour],
       sunsetTime: [this.storedData.sunsetTime],
       trainName: [this.storedData.trainName],
-      passenger: this.formBuilder.group({
-        firstName: [''],
-        lastName: [''],
-        personalNumber: [''],
-      })
+      passengers: this.formBuilder.array([
+        this.formBuilder.group({
+          firstName: [''],
+          lastName: [''],
+          personalNumber: ['']
+        })
+      ])
     });
 
-    
   }
 
-  ngOnInit(): void {
 
-  }
+  ngOnInit(): void {}
 
   addPassenger() {
     localStorage.setItem('formData', JSON.stringify(this.storedData));
-  
-    console.log(this.myForm.value);
+
+    this.storedData = this.myForm.value;
+
+    console.log(this.storedData)
   }
 
-  
+  generatePeople(people : number): number[] {
+    return Array.from({ length: people }, (index, i) => i + 1);
+  }
+
   
   
 }
