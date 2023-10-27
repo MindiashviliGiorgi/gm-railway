@@ -9,7 +9,7 @@ import { TicketService } from '../ticket.service';
   styleUrls: ['./reservation-form.component.scss']
 })
 export class ReservationFormComponent {
-  myForm: any;
+  myForm : any;
 
   constructor(private formBuilder: FormBuilder, private router : Router) {
     this.myForm = this.formBuilder.group({
@@ -35,8 +35,6 @@ export class ReservationFormComponent {
   
     // Save the merged data back to localStorage
     localStorage.setItem('formData', JSON.stringify(mergedData));
-  
-    console.log(formData);
   
     this.router.navigate(['/railsList']);
   }
