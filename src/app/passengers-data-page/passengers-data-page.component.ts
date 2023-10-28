@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-passengers-data-page',
@@ -10,7 +10,8 @@ export class PassengersDataPageComponent implements OnInit {
 
   storedData: any = {};
   myForm: FormGroup; // The main form
-  passForm : FormGroup;
+  passForm: FormGroup;
+  redd: boolean = true;
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
@@ -49,13 +50,16 @@ export class PassengersDataPageComponent implements OnInit {
   addPassenger() {
     // create passengers Array as FormArray from myForm
     const passengers = this.myForm.get('passengers') as FormArray;
-    // push passForm in Passengers Array
-    passengers.push(this.formBuilder.group(this.passForm.value));
+    // create newPassenger as a passForm.Value Object
+    const newPassenger = this.formBuilder.group(this.passForm.value);
+    // Add an 'id' property to the passenger object and set it to the current index
+    newPassenger.addControl('id', new FormControl(passengers.length));
+    // push that newPassenger object in passengers array
+    passengers.push(newPassenger);
 
     localStorage.setItem('formData', JSON.stringify(this.storedData));
 
     this.storedData = this.myForm.value;
-
     console.log(this.storedData)
   }
 

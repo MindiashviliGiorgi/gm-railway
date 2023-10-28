@@ -57,6 +57,10 @@
             <h3>Passenger {{ i + 1 }}</h3>
             <form [formGroup]="passForm" (ngSubmit)="addPassenger()">
               <div class="passenger-box">
+                <div class="place">
+                  <p>Place :</p>
+                  <p>7A</p>
+                </div>
                 <input type="text" placeholder="First Name" formControlName="firstName">
                 <input type="text" placeholder="Last Name" formControlName="lastName">
                 <input type="number" placeholder="Personal Number" formControlName="personalNumber">
@@ -88,6 +92,41 @@
         <div class="ticket-register-btn">
           <button>Ticket Registration</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="passenger-place-form">
+  <div class="place-form">
+    <div class="close-btn">
+      <img src="/assets/images/close-icon.png">
+    </div>
+    <div class="train">
+      <div class="trains-class">
+        <div class="train-class">
+          <p>I Class</p>
+        </div>
+        <div class="train-class">
+          <p>II Class</p>
+        </div>
+      </div>
+      <img style="transform:rotateY(180deg)" src="/assets/images/newTrain.png" />
+      <img src="/assets/images/newTrain.png"/>
+    </div>
+    <div class="train-place-list">
+      <div class="train-place-list-left">
+        <div class="place-a" [class.get-red]="redd">A1</div>
+        <div class="place-a" [class.get-red]="redd">A2</div>
+        <div class="place-a" [class.get-red]="redd">A3</div>
+        <div class="place-a" [class.get-red]="redd">A4</div>
+        <div class="place-a" [class.get-red]="redd">A5</div>
+      </div>
+      <div class="train-place-list-right">
+        <div class="place-b" [class.get-red]="redd">B1</div>
+        <div class="place-b" [class.get-red]="redd">B2</div>
+        <div class="place-b" [class.get-red]="redd">B3</div>
+        <div class="place-b" [class.get-red]="redd">B4</div>
+        <div class="place-b" [class.get-red]="redd">B5</div>
       </div>
     </div>
   </div>
