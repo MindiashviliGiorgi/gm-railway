@@ -10,13 +10,13 @@ export class PassengersDataPageComponent implements OnInit {
 
   storedData: any = {};
   myForm: FormGroup; // The main form
+  passForm : FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString);
     };
-    
     // in MyForm add passenger Array
     this.myForm = this.formBuilder.group({
       from: [this.storedData.from],
@@ -26,21 +26,32 @@ export class PassengersDataPageComponent implements OnInit {
       selectedHour: [this.storedData.selectedHour],
       sunsetTime: [this.storedData.sunsetTime],
       trainName: [this.storedData.trainName],
-      passengers: this.formBuilder.array([
-        this.formBuilder.group({
-          firstName: [''],
-          lastName: [''],
-          personalNumber: ['']
-        })
-      ])
+      email : [''],
+      phoneNumber : [''],
+      passengers: this.formBuilder.array([]),
     });
-
+    // create new passengerForm for add in passengers Array
+    this.passForm = this.formBuilder.group({
+      firstName: [''],
+      lastName: [''],
+      personalNumber: ['']
+    });
   }
-
 
   ngOnInit(): void {}
 
+  addContact() {
+    this.storedData.email = this.myForm.get('email')?.value;
+    this.storedData.phoneNumber = this.myForm.get('phoneNumber')?.value;
+    console.log(this.storedData)
+  }
+
   addPassenger() {
+    // create passengers Array as FormArray from myForm
+    const passengers = this.myForm.get('passengers') as FormArray;
+    // push passForm in Passengers Array
+    passengers.push(this.formBuilder.group(this.passForm.value));
+
     localStorage.setItem('formData', JSON.stringify(this.storedData));
 
     this.storedData = this.myForm.value;

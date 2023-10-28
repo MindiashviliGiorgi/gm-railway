@@ -31,15 +31,18 @@
         </ul>
       </div>
       <div class="decoration-line"></div>
-      <!-- contact form -->
+      <!-- user contact form -->
       <div class="contact-form-main">
         <div class="contact-form-title">
           <h3>Contact Form</h3>
         </div>
         <div class="contact-form-body">
-          <form>
-            <input type="email" placeholder="Email">
-            <input type="number" placeholder="Phone Number">
+          <form [formGroup]="myForm" (ngSubmit)="addContact()">
+            <input type="email" placeholder="Email" 
+            formControlName="email">
+            <input type="number" placeholder="Phone Number"
+            formControlName="phoneNumber">
+             <button type="submit">Add Contact</button>
           </form>
         </div>
       </div>
@@ -48,27 +51,25 @@
         <div class="passengers-information-title">
           <h3>Passenger Information</h3>
         </div>
-        <!-- <div class="passengers-information-form" *ngFor="let people of generatePeople(storedData.people); let i = index;">
-          <h3>Passenger {{ i + 1 }}</h3>
-          <form [formGroup]="myForm" (ngSubmit)="addPassenger()">
-            <div class="passenger-box" formArrayName="passengers">
-              <input type="text" placeholder="First Name" formControlName="firstName">
-              <input type="text" placeholder="Last Name" formControlName="lastName">
-              <input type="number" placeholder="Personal Number" formControlName="personalNumber">
-              <button type="submit">Add Passenger</button>
-            </div>
-          </form>          
-        </div> -->
-        <div class="passengers-information-form" formArrayName="passengers">
+        <!-- passengers form -->
+        <div class="passengers-information-form">
           <ng-container *ngFor="let people of generatePeople(storedData.people); let i = index;">
-
+            <h3>Passenger {{ i + 1 }}</h3>
+            <form [formGroup]="passForm" (ngSubmit)="addPassenger()">
+              <div class="passenger-box">
+                <input type="text" placeholder="First Name" formControlName="firstName">
+                <input type="text" placeholder="Last Name" formControlName="lastName">
+                <input type="number" placeholder="Personal Number" formControlName="personalNumber">
+                <button type="submit">Add Passenger</button>
+              </div>
+            </form>
           </ng-container>
         </div>
       </div>
     </div>
     <div class="section-right">
       <div class="invoice-main">
-        <div class="invoice-title">
+        <div class="invoice-title"> 
           <h3>Invoice</h3>
         </div>
         <div class="invoice-options">
