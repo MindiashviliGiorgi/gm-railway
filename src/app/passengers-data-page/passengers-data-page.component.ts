@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,8 @@ export class PassengersDataPageComponent implements OnInit {
   storedData: any = {};
   myForm: FormGroup; // The main form
   passForm: FormGroup;
-  redd: boolean = true;
+  redd: boolean = false;
+  choiceTrain: boolean = true;
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
@@ -30,6 +31,8 @@ export class PassengersDataPageComponent implements OnInit {
       email : [''],
       phoneNumber : [''],
       passengers: this.formBuilder.array([]),
+      trainClass: [''],
+      trainPlace: [''], 
     });
     // create new passengerForm for add in passengers Array
     this.passForm = this.formBuilder.group({
@@ -37,6 +40,8 @@ export class PassengersDataPageComponent implements OnInit {
       lastName: [''],
       personalNumber: ['']
     });
+
+
   }
 
   ngOnInit(): void {}
@@ -60,13 +65,43 @@ export class PassengersDataPageComponent implements OnInit {
     localStorage.setItem('formData', JSON.stringify(this.storedData));
 
     this.storedData = this.myForm.value;
-    console.log(this.storedData)
+
+    this.choiceTrain = false;
   }
 
   generatePeople(people : number): number[] {
     return Array.from({ length: people }, (index, i) => i + 1);
   }
+  // DOM all places Div
+  @ViewChild('placeDivsA', { static: true }) placeDivsA!: ElementRef;
+  @ViewChild('placeDivsB', { static: true }) placeDivsB!: ElementRef;
+  selectedDiv: HTMLDivElement | null = null;
 
-  
-  
+  // classList add and remove to choiced Div
+  toggleRed(event: Event, div: HTMLDivElement) {
+    if (this.selectedDiv) {
+      this.selectedDiv.classList.remove('get-red');
+    }
+    this.selectedDiv = div;
+    div.classList.add('get-red');
+    // Update the trainPlace property in the myForm with the value of the clicked div
+    this.myForm.get('trainPlace')?.setValue(div.textContent?.trim() || '');
+
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+
+    this.storedData = this.myForm.value;
+    console.log(this.storedData)
+  }
+  ngAfterViewInit() {
+    const divElementsA = this.placeDivsA.nativeElement.querySelectorAll('.place-a');
+    divElementsA.forEach((div: HTMLDivElement) => {
+      div.addEventListener('click', (event) => this.toggleRed(event, div));
+    });
+
+    const divElementsB = this.placeDivsB.nativeElement.querySelectorAll('.place-b');
+    divElementsB.forEach((div: HTMLDivElement) => {
+      div.addEventListener('click', (event) => this.toggleRed(event, div));
+    });
+  }
+
 }

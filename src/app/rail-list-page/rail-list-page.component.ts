@@ -63,7 +63,7 @@ export class RailListPageComponent {
   
     this.router.navigate(['/passengersData']);
   }
-  
+
   updateFormWithTrain808Info() {
     if (this.form808) {
       this.storedData.selectedHour = this.form808.get('selectedHour')?.value;
@@ -76,7 +76,7 @@ export class RailListPageComponent {
   
     this.router.navigate(['/passengersData']);
   }
-
+  
   updateFormWithTrain804Info() {
     if (this.form804) {
         this.storedData.selectedHour = this.form804.get('selectedHour')?.value;
