@@ -10,6 +10,7 @@ export class PassengersDataPageComponent implements OnInit {
 
   storedData: any = {};
   myForm: FormGroup; // The main form
+  addDone : boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
@@ -44,7 +45,10 @@ export class PassengersDataPageComponent implements OnInit {
   addContact() {
     this.storedData.email = this.myForm.get('email')?.value;
     this.storedData.phoneNumber = this.myForm.get('phoneNumber')?.value;
-    console.log(this.storedData)
+
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+
+    this.storedData = this.myForm.value;
   }
 
   generatePeople(people : number): number[] {
@@ -69,11 +73,17 @@ export class PassengersDataPageComponent implements OnInit {
 
   addPassengerInfo(index: number){
     localStorage.setItem('formData', JSON.stringify(this.storedData));
-    
     this.storedData = this.myForm.value;
 
-    
+    this.addPassengerInfo(index);
   }
   
+
+  addActive() {
+    this.addDone = true;
+    setTimeout(() => {
+      this.addDone = false;
+    }, 1000)
+  }
 }
 
