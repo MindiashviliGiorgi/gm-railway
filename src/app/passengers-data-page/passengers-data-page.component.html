@@ -52,23 +52,27 @@
           <h3>Passenger Information</h3>
         </div>
         <!-- passengers form -->
-        <div class="passengers-information-form">
-          <ng-container *ngFor="let people of generatePeople(storedData.people); let i = index;">
-            <h3>Passenger {{ i + 1 }}</h3>
-            <form [formGroup]="passForm" (ngSubmit)="addPassenger()">
-              <div class="passenger-box">
-                <div class="place">
-                  <p>Place :</p>
-                  <p>{{ storedData.trainPlace}}</p>
-                </div>
-                <input type="text" placeholder="First Name" formControlName="firstName">
-                <input type="text" placeholder="Last Name" formControlName="lastName">
-                <input type="number" placeholder="Personal Number" formControlName="personalNumber">
-                <button type="submit">Add Passenger</button>
-              </div>
-            </form>
-          </ng-container>
+        <div class="passengers-information-form" [formGroup]="myForm">
+            <div class="passenger-box" formArrayName="passengers">
+                <ng-container *ngFor="let passengerForm of passengers.controls; let i = index;">
+                  <div>
+                    <h3>Passenger {{ i + 1 }}</h3>
+                    <form  [formGroupName]="i" (ngSubmit)="addPassenger()">
+                      <div class="place">
+                        <p>Place:</p>
+                        <p></p>
+                      </div>
+                      <input type="text" placeholder="First Name" formControlName="firstName">
+                      <input type="text" placeholder="Last Name" formControlName="lastName">
+                      <input type="number" placeholder="Personal Number" formControlName="personalNumber">
+                      <input type="text" placeholder="Place" formControlName="place">
+                      <button type="submit">Add Passenger</button>
+                    </form>
+                  </div>
+                </ng-container>
+            </div>
         </div>
+        <button (click)="addPassenger()">add New</button> 
       </div>
     </div>
     <div class="section-right">
@@ -96,7 +100,7 @@
     </div>
   </div>
 </div>
-<div class="passenger-place-form" [class.passenger-place-form-hidden]="choiceTrain">
+<!-- <div class="passenger-place-form" [class.passenger-place-form-hidden]="choiceTrain">
   <div class="place-form">
     <div class="close-btn" (click)="choiceTrain = true;">
       <img src="/assets/images/close-icon.png">
@@ -130,4 +134,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

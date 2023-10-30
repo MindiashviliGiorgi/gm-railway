@@ -7,10 +7,14 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./passengers-data-page.component.scss']
 })
 export class PassengersDataPageComponent implements OnInit {
+  // DOM all places Div
+  @ViewChild('placeDivsA', { static: true }) placeDivsA!: ElementRef;
+  @ViewChild('placeDivsB', { static: true }) placeDivsB!: ElementRef;
+  selectedDiv: HTMLDivElement | null = null;
 
   storedData: any = {};
   myForm: FormGroup; // The main form
-  passForm: FormGroup;
+  // passengerForm: FormGroup;
   redd: boolean = false;
   choiceTrain: boolean = true;
 
@@ -31,20 +35,28 @@ export class PassengersDataPageComponent implements OnInit {
       email : [''],
       phoneNumber : [''],
       passengers: this.formBuilder.array([]),
-      trainClass: [''],
-      trainPlace: [''], 
+      trainClass: [''], 
     });
     // create new passengerForm for add in passengers Array
-    this.passForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      personalNumber: ['']
-    });
-
+    // this.passengerForm = this.formBuilder.group({
+    //   firstName: [''],
+    //   lastName: [''],
+    //   personalNumber: [''],
+    //   trainPlace: [''],
+    //   place: [''],
+    // });
 
   }
 
-  ngOnInit(): void {}
+  get passengers () {
+    return this.myForm.controls["passengers"] as FormArray
+  }
+
+  ngOnInit(): void {
+
+  }
+  
+  
 
   addContact() {
     this.storedData.email = this.myForm.get('email')?.value;
@@ -52,56 +64,63 @@ export class PassengersDataPageComponent implements OnInit {
     console.log(this.storedData)
   }
 
-  addPassenger() {
-    // create passengers Array as FormArray from myForm
-    const passengers = this.myForm.get('passengers') as FormArray;
-    // create newPassenger as a passForm.Value Object
-    const newPassenger = this.formBuilder.group(this.passForm.value);
-    // Add an 'id' property to the passenger object and set it to the current index
-    newPassenger.addControl('id', new FormControl(passengers.length));
-    // push that newPassenger object in passengers array
-    passengers.push(newPassenger);
-
-    localStorage.setItem('formData', JSON.stringify(this.storedData));
-
-    this.storedData = this.myForm.value;
-
-    this.choiceTrain = false;
-  }
-
   generatePeople(people : number): number[] {
     return Array.from({ length: people }, (index, i) => i + 1);
   }
-  // DOM all places Div
-  @ViewChild('placeDivsA', { static: true }) placeDivsA!: ElementRef;
-  @ViewChild('placeDivsB', { static: true }) placeDivsB!: ElementRef;
-  selectedDiv: HTMLDivElement | null = null;
+  //   // create passengers Array as FormArray from myForm
+  //   const passengers = this.myForm.get('passengers') as FormArray;
+  //   // create newPassenger as a passForm.Value Object
+  //   const newPassenger = this.formBuilder.group(this.passForm.value);
+  //   // Add an 'id' property to the passenger object and set it to the current index
+  //   newPassenger.addControl('id', new FormControl(passengers.length));
+  //   // push that newPassenger object in passengers array
+  //   passengers.push(newPassenger);
+
+  //   localStorage.setItem('formData', JSON.stringify(this.storedData));
+
+  //   this.storedData = this.myForm.value;
+  // }
 
   // classList add and remove to choiced Div
-  toggleRed(event: Event, div: HTMLDivElement) {
-    if (this.selectedDiv) {
-      this.selectedDiv.classList.remove('get-red');
-    }
-    this.selectedDiv = div;
-    div.classList.add('get-red');
-    // Update the trainPlace property in the myForm with the value of the clicked div
-    this.myForm.get('trainPlace')?.setValue(div.textContent?.trim() || '');
+  // toggleRed(event: Event, div: HTMLDivElement) {
+  //   if (this.selectedDiv) {
+  //     this.selectedDiv.classList.remove('get-red');
+  //   }
+  //   this.selectedDiv = div;
+  //   div.classList.add('get-red');
 
-    localStorage.setItem('formData', JSON.stringify(this.storedData));
+  //   // Update the trainPlace property in the myForm with the value of the clicked div
+  //   this.passForm.get('trainPlace')?.setValue(div.textContent?.trim() || '');
 
-    this.storedData = this.myForm.value;
-    console.log(this.storedData)
-  }
-  ngAfterViewInit() {
-    const divElementsA = this.placeDivsA.nativeElement.querySelectorAll('.place-a');
-    divElementsA.forEach((div: HTMLDivElement) => {
-      div.addEventListener('click', (event) => this.toggleRed(event, div));
+  //   localStorage.setItem('formData', JSON.stringify(this.storedData));
+
+  //   this.storedData = this.myForm.value;
+
+  //   console.log(this.storedData)
+  // }
+
+  // ngAfterViewInit() {
+  //   const divElementsA = this.placeDivsA.nativeElement.querySelectorAll('.place-a');
+  //   divElementsA.forEach((div: HTMLDivElement) => {
+  //     div.addEventListener('click', (event) => this.toggleRed(event, div));
+  //   });
+
+  //   const divElementsB = this.placeDivsB.nativeElement.querySelectorAll('.place-b');
+  //   divElementsB.forEach((div: HTMLDivElement) => {
+  //     div.addEventListener('click', (event) => this.toggleRed(event, div));
+  //   });
+  // 
+  
+  addPassenger() {
+    const passengers = this.myForm.get('passengers') as FormArray;
+    const passengerForm = this.formBuilder.group({
+      firstName: [''],
+      lastName: [''],
+      personalNumber: [''],
+      place: [''],
     });
-
-    const divElementsB = this.placeDivsB.nativeElement.querySelectorAll('.place-b');
-    divElementsB.forEach((div: HTMLDivElement) => {
-      div.addEventListener('click', (event) => this.toggleRed(event, div));
-    });
+    passengers.push(passengerForm);
   }
-
+  
 }
+

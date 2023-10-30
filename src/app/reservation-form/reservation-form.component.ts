@@ -16,7 +16,7 @@ export class ReservationFormComponent {
       from: [''],
       to: [''],
       date: [''],
-      people: [0],
+      people: [],
     });
   }
 
