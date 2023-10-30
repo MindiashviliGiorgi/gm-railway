@@ -113,7 +113,7 @@
             flex-direction: row;
             column-gap: 10px;
             input {
-              width: 100%;
+              width: 200px;
               padding: 7px 10px;
               border: 1px solid #000;
               outline: none;
@@ -121,7 +121,7 @@
               border-radius: 4px;
             }
             button {
-              width: 700px;
+              width: 200px;
               height: 35px;
               background-color: #294985;
               color: #fff;
@@ -147,7 +147,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        row-gap: 30px;
+        row-gap: 20px;
         .passengers-information-title {
           h3 {
             font-size: 30px;
@@ -168,51 +168,63 @@
           }
           form {
             width: 100%;
-            .passenger-box {
+            .passenger-container {
               width: 100%;
               display: flex;
-              align-items: center;
-              flex-direction: row;
-              column-gap: 10px;
-              .place {
-                width: 550px;
-                height: 35px;
-                background-color: #294985;
-                color: #fff;
+              flex-direction: column;
+              row-gap: 10px;
+              padding: 10px 0px;
+              .passenger-container-up {
+                width: 100%;
+                height: auto;
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 flex-direction: row;
-                column-gap: 10px;
-                border-radius: 4px;
-              }
-              input {
-                width: 100%;
-                height: 35px;
-                padding: 7px 10px;
-                border: 1px solid #000;
-                outline: none;
-                font-size: 17px;
-                border-radius: 4px;
-              }
-              button {
-                width: 700px;
-                height: 35px;
-                background-color: #294985;
-                color: #fff;
-                font-size: 18px;
-                border: none;
-                outline: none;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: 0.3s;
-                &:hover {
-                  background-color: #2e5eb7;
-                  transition: 0.3s;
+                column-gap: 20px;
+                input {
+                  width: 200px;
+                  height: 35px;
+                  padding: 7px 10px;
+                  border: 1px solid #000;
+                  outline: none;
+                  font-size: 17px;
+                  border-radius: 4px;
                 }
-                &:active {
+              }
+              .passenger-container-down {
+                display: flex;
+                flex-direction: row;
+                column-gap: 20px;
+                align-items: center;
+                width: 100%;
+                select {
+                  width: 200px;
+                  height: 35px;
+                  padding: 7px 10px;
+                  border: 1px solid #000;
+                  outline: none;
+                  font-size: 17px;
+                  border-radius: 4px;
+                }
+                button {
+                  width: 200px;
+                  height: 35px;
                   background-color: #294985;
-                  transition: 0s;
+                  color: #fff;
+                  font-size: 18px;
+                  border: none;
+                  outline: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  transition: 0.3s;
+                  &:hover {
+                    background-color: #2e5eb7;
+                    transition: 0.3s;
+                  }
+                  &:active {
+                    background-color: #294985;
+                    transition: 0s;
+                  }
                 }
               }
             }
@@ -314,7 +326,7 @@
     }
   }
 }
-.passenger-place-form {
+.added {
   z-index: 3;
   position: fixed;
   inset: 0;
@@ -334,7 +346,7 @@
       background-color: #575757;
       z-index: 2;
   }
-  .place-form {
+  .added-container {
     width: 400px;
     height: auto;
     background-color: #fff;
@@ -346,108 +358,6 @@
     row-gap: 20px;
     align-items: center;
     padding: 40px 30px;
-    .close-btn {
-      width: 100%;
-      height: auto;
-      display: flex;
-      justify-content: right;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 15;
-      img {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        transition: 0.2s;
-        cursor: pointer;
-        &:hover {
-          transform: scale(1.1);
-          transition: 0.2s;
-        }
-      }
-    }
-    .train {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      column-gap: 15px;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      .trains-class {
-        width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        column-gap: 15px;
-        position: absolute;
-        left: 0;
-        top: -25px;
-        content: '';
-        z-index: 11;
-        .train-class {
-          p {
-            color: #4a4a4a;
-            font-size: 20px;
-            font-weight: 100;
-          }
-        }
-      }
-      img {
-        width: 120px;
-        height: 58px;
-        object-fit: cover;
-        opacity: 0.6;
-        cursor: pointer;
-        &:hover {
-          opacity: 1;
-          transition: 0.2s;
-        }
-      }
-    }
-    .train-place-list {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      align-items: top;
-      justify-content: center;
-      column-gap: 75px;
-      .train-place-list-left,
-      .train-place-list-right {
-        display: flex;
-        flex-direction: column;
-        row-gap: 11px;
-        .place-a,
-        .place-b {
-          font-size: 20px;
-          background-color: #009619;
-          color: #fff;
-          padding: 5px;
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: 0.2s;
-          &:hover {
-            transform: scale(1.1);
-            transition: 0.2s;
-          }
-        }
-        .get-red {
-          background-color: #c51010;
-        }
-      }
-    }
   }
 }
-.passenger-place-form-hidden {
-  opacity: 0;
-  transition: opacity 0.5s;
-  z-index: -1; /* You can add a transition for smooth opacity changes */
-}
+

@@ -58,15 +58,35 @@
                   <div>
                     <h3>Passenger {{ i + 1 }}</h3>
                     <form  [formGroupName]="i" (ngSubmit)="addPassengerInfo(i)">
-                      <div class="place">
-                        <p>Place:</p>
-                        <p></p>
+                      <div class="passenger-container">
+                        <div class="passenger-container-up">
+                          <input type="text" placeholder="First Name" formControlName="firstName">
+                          <input type="text" placeholder="Last Name" formControlName="lastName">
+                          <input type="number" placeholder="Personal Number" formControlName="personalNumber">
+                        </div>
+                        <div class="passenger-container-down">
+                          <select formControlName="trainClass">
+                            <option value="">Train Class</option>
+                            <option value="1">I Class</option>
+                            <option value="2">II Class</option>
+                            <option value="3">III Class</option>
+                          </select>
+                          <select formControlName="place">
+                            <option value="">Place in train</option>
+                            <option value="a1">A1</option>
+                            <option value="a2">A2</option>
+                            <option value="a3">A3</option>
+                            <option value="a4">A4</option>
+                            <option value="a5">A5</option>
+                            <option value="b1">B1</option>
+                            <option value="b2">B2</option>
+                            <option value="b3">B3</option>
+                            <option value="b4">B4</option>
+                            <option value="b5">B5</option>
+                          </select>
+                          <button type="submit">Add Passenger</button>
+                        </div>
                       </div>
-                      <input type="text" placeholder="First Name" formControlName="firstName">
-                      <input type="text" placeholder="Last Name" formControlName="lastName">
-                      <input type="number" placeholder="Personal Number" formControlName="personalNumber">
-                      <input type="text" placeholder="Place" formControlName="place">
-                      <button type="submit">Add Passenger</button>
                     </form>
                   </div>
                 </ng-container>
@@ -99,38 +119,9 @@
     </div>
   </div>
 </div>
-<!-- <div class="passenger-place-form" [class.passenger-place-form-hidden]="choiceTrain">
-  <div class="place-form">
-    <div class="close-btn" (click)="choiceTrain = true;">
-      <img src="/assets/images/close-icon.png">
-    </div>
-    <div class="train">
-      <div class="trains-class">
-        <div class="train-class">
-          <p>I Class</p>
-        </div>
-        <div class="train-class">
-          <p>II Class</p>
-        </div>
-      </div>
-      <img style="transform:rotateY(180deg)" src="/assets/images/newTrain.png" />
-      <img src="/assets/images/newTrain.png"/>
-    </div>
-    <div class="train-place-list">
-      <div class="train-place-list-left" #placeDivsA>
-        <div class="place-a" [class.get-red]="redd">A1</div>
-        <div class="place-a" [class.get-red]="redd">A2</div>
-        <div class="place-a" [class.get-red]="redd">A3</div>
-        <div class="place-a" [class.get-red]="redd">A4</div>
-        <div class="place-a" [class.get-red]="redd">A5</div>
-      </div>
-      <div class="train-place-list-right" #placeDivsB>
-        <div class="place-b" [class.get-red]="redd">B1</div>
-        <div class="place-b" [class.get-red]="redd">B2</div>
-        <div class="place-b" [class.get-red]="redd">B3</div>
-        <div class="place-b" [class.get-red]="redd">B4</div>
-        <div class="place-b" [class.get-red]="redd">B5</div>
-      </div>
-    </div>
+<div class="added">
+  <div class="added-container">
+    <h1>Added successfully</h1>
+    <img src=""/>
   </div>
-</div> -->
+</div>
