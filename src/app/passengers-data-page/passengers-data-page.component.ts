@@ -37,15 +37,6 @@ export class PassengersDataPageComponent implements OnInit {
       passengers: this.formBuilder.array([]),
       trainClass: [''], 
     });
-    // create new passengerForm for add in passengers Array
-    // this.passengerForm = this.formBuilder.group({
-    //   firstName: [''],
-    //   lastName: [''],
-    //   personalNumber: [''],
-    //   trainPlace: [''],
-    //   place: [''],
-    // });
-
   }
 
   get passengers () {
@@ -53,7 +44,9 @@ export class PassengersDataPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    for (let i = 0; i < this.storedData.people; i++) {
+      this.createPassenger();
+    }
   }
   
   
@@ -111,7 +104,7 @@ export class PassengersDataPageComponent implements OnInit {
   //   });
   // 
   
-  addPassenger() {
+  createPassenger() {
     const passengers = this.myForm.get('passengers') as FormArray;
     const passengerForm = this.formBuilder.group({
       firstName: [''],
@@ -120,6 +113,22 @@ export class PassengersDataPageComponent implements OnInit {
       place: [''],
     });
     passengers.push(passengerForm);
+
+    localStorage.setItem('formData', JSON.stringify(this.storedData));
+
+    this.storedData = this.myForm.value;
+  }
+
+  addPassengerInfo(index: number){
+    const passengers = this.myForm.get('passengers') as FormArray;
+    const passengerForm = passengers.at(index) as FormGroup;
+
+    const firstName = passengerForm.get('firstName')?.value;
+    const lastName = passengerForm.get('lastName')?.value;
+
+    console.log(firstName, lastName)
+
+    console.log(this.myForm.value)
   }
   
 }

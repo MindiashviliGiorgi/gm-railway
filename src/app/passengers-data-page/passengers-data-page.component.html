@@ -57,7 +57,7 @@
                 <ng-container *ngFor="let passengerForm of passengers.controls; let i = index;">
                   <div>
                     <h3>Passenger {{ i + 1 }}</h3>
-                    <form  [formGroupName]="i" (ngSubmit)="addPassenger()">
+                    <form  [formGroupName]="i" (ngSubmit)="addPassengerInfo(i)">
                       <div class="place">
                         <p>Place:</p>
                         <p></p>
@@ -72,7 +72,6 @@
                 </ng-container>
             </div>
         </div>
-        <button (click)="addPassenger()">add New</button> 
       </div>
     </div>
     <div class="section-right">
