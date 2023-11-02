@@ -12,12 +12,18 @@ export class DebitRegistrationPageComponent {
   addDone : boolean = false;
   storedData : any = {};
   myForm: FormGroup; // The main form
+  randomString : string = '';
+  newReleaseDate: string = '';
 
   constructor(private formBuilder : FormBuilder, private router : Router) {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString)
     };
+
+    this.getCurrentDateTime();
+    this.randomString = this.generateRandomString(10);
+
     // myForm 
     this.myForm = this.formBuilder.group({
       from: [this.storedData.from],
@@ -35,6 +41,8 @@ export class DebitRegistrationPageComponent {
       validityPeriod: [''],
       cvv : [''],
       cardOwner : [''],
+      uniqueNumber: [this.randomString],
+      releaseDate: [this.newReleaseDate]
     });
 
   }
@@ -48,7 +56,29 @@ export class DebitRegistrationPageComponent {
     }, 1000)
   };
 
+  generateRandomString(length: number): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charactersLength);
+      result += characters.charAt(randomIndex);
+    }
+
+    this.randomString = result;
+
+    return result;
+  }
+
+  getCurrentDateTime(): void {
+    const currentDate = new Date();
+    this.newReleaseDate = currentDate.toLocaleString();
+  }
+
   ticketPayment(){
+    this.storedData.releaseDate = this.myForm.get('releaseDate')?.value;
+    this.storedData.uniqueNumber = this.myForm.get('uniqueNumber')?.value;
     this.storedData.cardNumber = this.myForm.get('cardNumber')?.value;
     this.storedData.validityPeriod = this.myForm.get('validityPeriod')?.value;
     this.storedData.cvv = this.myForm.get('cvv')?.value;
@@ -58,13 +88,13 @@ export class DebitRegistrationPageComponent {
 
     this.storedData = this.myForm.value;
 
-    console.log(this.storedData)
-
     this.addActive()
 
     setTimeout(() => {
       this.router.navigate(['/ticketPage']);
     }, 1200)
   }
+
+  
 
 }

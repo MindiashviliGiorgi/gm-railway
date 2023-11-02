@@ -1,5 +1,93 @@
 <app-header></app-header>
 <div class="ticket-page-main">
-  
+  <div class="ticket">
+    <div class="ticket-header">
+      <div class="header-left">
+        <h1>GM RAILWAY</h1>
+      </div>
+      <div class="header-right">
+        <img src="/assets/images/train.png">
+      </div>
+    </div>
+    <div class="unique-number-date">
+      <p>Ticket unique number: {{ storedData.uniqueNumber }}</p>
+      <p>Release Date: {{ storedData.releaseDate }}</p>
+    </div>
+    <div class="departure-sunset-date">
+      <div class="departure">
+        <b>Departure:</b>
+        <p>{{ storedData.from + ' ' + storedData.selectedHour }}</p>
+      </div>
+      <div class="decore"></div>
+      <div class="sunset">
+        <b>Sunset:</b>
+        <p>{{ storedData.to + ' ' + storedData.sunsetTime }}</p>
+      </div>
+      <div class="decore"></div>
+      <div class="start-date">
+        <b>Expiration date:</b>
+        <p>{{ storedData.date }}</p>
+      </div>
+    </div>
+    <div class="contact-information">
+      <div class="contact-title">
+        <h3>Contact information</h3>
+      </div>
+      <div class="email-phone-number">
+        <div class="email">
+          <b>Email: </b>
+          <p>{{ storedData.email }}</p>
+        </div>
+        <div class="decore"></div>
+        <div class="phone-number">
+          <b>Phone number: </b>
+          <p>{{ storedData.phoneNumber }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="passengers">
+      <div class="passengers-title">
+        <h3>Passengers</h3>
+      </div>
+      <div class="passengers-list">
+        <ng-container *ngFor="let passenger of storedData.passengers;">
+          <div class="passsenger">
+            <div class="first-name">
+              <b>First Name:</b>
+              <p>{{ passenger.firstName }}</p>
+            </div>
+            <div class="last-name">
+              <b>Last Name:</b>
+              <p>{{ passenger.lastName }}</p>
+            </div>
+            <div class="personal-number">
+              <b>Personal number:</b>
+              <p>{{ passenger.personalNumber }}</p>
+            </div>
+            <div class="place">
+              <b>Place:</b>
+              <p>{{ passenger.place }}</p>
+            </div>
+            <div class="train-class">
+              <b>Train class:</b>
+              <p>
+                <ng-container *ngIf="passenger.trainClass == 150">
+                  I Class
+                </ng-container>
+                <ng-container *ngIf="passenger.trainClass == 100">
+                  II Class
+                </ng-container>
+                <ng-container *ngIf="passenger.trainClass == 50">
+                  III Class
+                </ng-container>
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="payment-info"></div>
+    <div class="rules"></div>
+  </div>
 </div>
 <app-footer></app-footer>

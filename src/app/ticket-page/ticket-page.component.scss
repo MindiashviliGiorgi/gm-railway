@@ -1,5 +1,158 @@
 .ticket-page-main {
   width: 100%;
   min-height: 85vh;
-  
+  padding: 50px 150px;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  background-color: #f0f0f0;
+  .ticket {
+    width: 100%;
+    min-height: 50vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    padding: 40px;
+    .ticket-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .header-left {
+        h1 {
+          font-size: 30px;
+          font-weight: 100;
+          letter-spacing: 1px;
+        }
+      }
+      .header-right {
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+      }
+    }
+    .unique-number-date {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+        font-size: 17px;
+      }
+    }
+    .departure-sunset-date {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #585858;
+      border-radius: 10px;
+      padding: 0px 20px;
+      .decore {
+        width: 1px;
+        height: 100%;
+        background-color: #585858;
+      }
+      .departure,
+      .sunset,
+      .start-date {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        padding: 20px 0px;
+        p {
+          font-size: 18px;
+        }
+      }
+      .sunset,
+      .start-date {
+        padding-left: 20px;
+      }
+    }
+    .contact-information {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .contact-title {
+        h3 {
+          font-size: 22px;
+          font-weight: 100;
+          letter-spacing: 0.5px;
+        }
+      }
+      .email-phone-number {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #585858;
+        border-radius: 10px;
+        padding: 0px 20px;
+        .decore {
+          width: 1px;
+          height: 100%;
+          background-color: #585858;
+        }
+        .email,
+        .phone-number {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          column-gap: 5px;
+          padding: 20px 0px;
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .passengers {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .passengers-title {
+        h3 {
+          font-size: 22px;
+          font-weight: 100;
+          letter-spacing: 0.5px;
+        }
+      }
+      .passengers-list {
+        width: 100%;
+        height: auto;
+        border: 1px solid #585858;
+        border-radius: 10px;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        .passsenger {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: auto;
+          .first-name,
+          .last-name,
+          .personal-number,
+          .place,
+          .train-class {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+          }
+        }
+      }
+    }
+  }
 }
