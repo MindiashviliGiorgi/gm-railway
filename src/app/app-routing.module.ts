@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RailListPageComponent } from './rail-list-page/rail-list-page.component';
 import { PassengersDataPageComponent } from './passengers-data-page/passengers-data-page.component';
 import { DebitRegistrationPageComponent } from './debit-registration-page/debit-registration-page.component';
+import { TicketPageComponent } from './ticket-page/ticket-page.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path : 'debitRegistration',
     component : DebitRegistrationPageComponent
+  },
+  {
+    path : 'ticketPage',
+    component : TicketPageComponent
   }
 ];
 

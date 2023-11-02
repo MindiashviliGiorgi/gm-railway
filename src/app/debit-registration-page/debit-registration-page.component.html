@@ -2,26 +2,28 @@
 <div class="debit-main">
   <div class="debit-registration-form">
     <div class="total-amount">
-      <h3>Total payable 150.00$</h3>
+      <h3>Total payable {{ storedData.amount }}.00$</h3>
     </div>
-    <form (ngSubmit)="ticketPayment()">
+    <form [formGroup]="myForm" (ngSubmit)="ticketPayment()">
       <div class="card-number">
         <p for="cardNumber">Card Number</p>
-        <input type="number" placeholder="1236 1965 5155 5151">
+        <input type="number" placeholder="1236 1965 5155 5151"
+        formControlName="cardNumber">
       </div>
       <div class="period-cvv">
         <div class="period">
           <p for="period">Validity period</p>
-          <input type="date">
+          <input type="date" formControlName="validityPeriod">
         </div>
         <div class="cvv">
           <p for="cvv">CVC/CVV</p>
-          <input type="number" placeholder="410">
+          <input type="number" placeholder="410" formControlName="cvv">
         </div>
       </div>
       <div class="card-owner">
         <p for="owner">Card Owner</p>
-        <input type="text" placeholder="James Svenson">
+        <input type="text" placeholder="James Svenson"
+        formControlName="cardOwner">
       </div>
       <div class="btn">
         <button type="submit">Pay</button>

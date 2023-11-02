@@ -13,6 +13,7 @@ import { RailListPageComponent } from './rail-list-page/rail-list-page.component
 import { HttpClientModule } from '@angular/common/http';
 import { PassengersDataPageComponent } from './passengers-data-page/passengers-data-page.component';
 import { DebitRegistrationPageComponent } from './debit-registration-page/debit-registration-page.component';
+import { TicketPageComponent } from './ticket-page/ticket-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DebitRegistrationPageComponent } from './debit-registration-page/debit-
     FooterComponent,
     RailListPageComponent,
     PassengersDataPageComponent,
-    DebitRegistrationPageComponent
+    DebitRegistrationPageComponent,
+    TicketPageComponent
   ],
   imports: [
     BrowserModule,

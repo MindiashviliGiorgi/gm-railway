@@ -19,7 +19,7 @@ export class PassengersDataPageComponent implements OnInit {
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString);
     };
-    // in MyForm add passenger Array
+    // MyForm
     this.myForm = this.formBuilder.group({
       from: [this.storedData.from],
       to: [this.storedData.to],
@@ -31,6 +31,7 @@ export class PassengersDataPageComponent implements OnInit {
       email : [''],
       phoneNumber : [''],
       passengers: this.formBuilder.array([]),
+      amount: [''],
     });
   }
 
@@ -83,7 +84,7 @@ export class PassengersDataPageComponent implements OnInit {
       // Call the function again after a short delay
       this.addPassengerInfo(index);
     }, 0);
-  }
+  } 
 
   addActive() {
     this.addDone = true;
@@ -116,6 +117,10 @@ export class PassengersDataPageComponent implements OnInit {
         }
       }
     });
+
+    this.storedData.amount = this.myForm.get('amount')?.value;
+
+    this.storedData.amount = result;
 
     return result;
   };
