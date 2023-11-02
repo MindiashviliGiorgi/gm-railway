@@ -1,0 +1,177 @@
+.debit-main {
+  width: 100%;
+  min-height: 83vh;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  padding: 50px 150px;
+  background-color: #fcfcfc;
+  position: relative;
+  z-index: 1;
+  .debit-registration-form {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 40px;
+    background-color: #789fe8;
+    border-radius: 20px;
+    .total-amount {
+      h3 {
+        font-size: 22px;
+        font-weight: 100;
+        color: #292929;
+      }
+    }
+    form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .period-cvv {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        column-gap: 20px;
+        width: 100%;
+        .period,
+        .cvv {
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          flex: 1;
+          width: 100%;
+          p {
+            font-size: 22px;
+            color: #000;
+            letter-spacing: 0.4px;
+          }
+          input {
+            width: 100%;
+            font-size: 18px;
+            padding: 5px 10px;
+            outline: none;
+            border: none;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px #bababa;
+          }
+        }
+      }
+      .card-number,
+      .card-owner {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        p {
+          font-size: 22px;
+          color: #000;
+          letter-spacing: 0.4px;
+        }
+        input {
+          width: 100%;
+          font-size: 18px;
+          padding: 5px 10px;
+          outline: none;
+          border: none;
+          border-radius: 7px;
+          box-shadow: 0px 0px 5px #bababa;
+        }
+      }
+      .btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          background-color: #294985;
+          color: #fff;
+          border: none;
+          outline: none;
+          padding: 5px 10px;
+          font-size: 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: 0.2s;
+          width: 200px;
+          height: 35px;
+          letter-spacing: 1px;
+          &:hover {
+            background-color: #2e5eb7;
+            transition: 0.2s;
+          }
+          &:active {
+            transition: 0s;
+            background-color: #294985;
+          }
+        }
+      }
+    }
+  }
+}
+
+.added {
+  z-index: -15;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+  opacity: 0;
+  &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      inset: 0;
+      opacity: 0.5;
+      // background-color: #575757;
+      z-index: 2;
+  }
+  .added-container {
+    position: relative;
+    z-index: -9;
+    width: 450px;
+    height: auto;
+    background-color: #fff;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #cacaca;
+    h1 {
+      letter-spacing: 0.3px;
+      font-weight: 100;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+}
+.added-animation {
+  z-index: 9;
+  animation: addedDone 1s ease-in-out;
+  .added-container {
+    z-index: 10;
+  }
+}
+@keyframes addedDone {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

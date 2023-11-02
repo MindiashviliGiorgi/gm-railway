@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RailListPageComponent } from './rail-list-page/rail-list-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PassengersDataPageComponent } from './passengers-data-page/passengers-data-page.component';
+import { DebitRegistrationPageComponent } from './debit-registration-page/debit-registration-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PassengersDataPageComponent } from './passengers-data-page/passengers-d
     HomePageDecorationComponent,
     FooterComponent,
     RailListPageComponent,
-    PassengersDataPageComponent
+    PassengersDataPageComponent,
+    DebitRegistrationPageComponent
   ],
   imports: [
     BrowserModule,

@@ -257,7 +257,7 @@
         .place-price {
           width: 100%;
           display: flex;
-          align-items: center;
+          align-items: top;
           justify-content: space-between;
           .place,
           .price {
@@ -267,6 +267,9 @@
             p {
               font-size: 18px;
             }
+          }
+          .price {
+            text-align: right;
           }
 
         }

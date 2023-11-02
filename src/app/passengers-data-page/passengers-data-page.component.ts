@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-passengers-data-page',
@@ -13,7 +14,7 @@ export class PassengersDataPageComponent implements OnInit {
   addDone : boolean = false;
   totalAmount : number = 0;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router : Router) {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString);
@@ -83,7 +84,7 @@ export class PassengersDataPageComponent implements OnInit {
       this.addPassengerInfo(index);
     }, 0);
   }
-  
+
   addActive() {
     this.addDone = true;
     setTimeout(() => {
@@ -117,11 +118,11 @@ export class PassengersDataPageComponent implements OnInit {
     });
 
     return result;
+  };
+
+  ticketRegister() {
+    this.router.navigate(['/debitRegistration']);
   }
   
-  
-  
-
-
 }
 

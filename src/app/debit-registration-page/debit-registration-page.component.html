@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="debit-main">
+  <div class="debit-registration-form">
+    <div class="total-amount">
+      <h3>Total payable 150.00$</h3>
+    </div>
+    <form (ngSubmit)="ticketPayment()">
+      <div class="card-number">
+        <p for="cardNumber">Card Number</p>
+        <input type="number" placeholder="1236 1965 5155 5151">
+      </div>
+      <div class="period-cvv">
+        <div class="period">
+          <p for="period">Validity period</p>
+          <input type="date">
+        </div>
+        <div class="cvv">
+          <p for="cvv">CVC/CVV</p>
+          <input type="number" placeholder="410">
+        </div>
+      </div>
+      <div class="card-owner">
+        <p for="owner">Card Owner</p>
+        <input type="text" placeholder="James Svenson">
+      </div>
+      <div class="btn">
+        <button type="submit">Pay</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="added" [class.added-animation]="addDone">
+  <div class="added-container">
+    <h1>Payment successfully</h1>
+    <img src="/assets/images/added-icon.png"/>
+  </div>
+</div>
+<app-footer></app-footer>

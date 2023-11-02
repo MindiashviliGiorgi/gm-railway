@@ -67,9 +67,9 @@
                         <div class="passenger-container-down">
                           <select formControlName="trainClass">
                             <option value="">Train Class</option>
-                            <option value="150">I Class</option>
-                            <option value="100">II Class</option>
-                            <option value="50">III Class</option>
+                            <option value="150">I Class 150$</option>
+                            <option value="100">II Class 100$</option>
+                            <option value="50">III Class 50$</option>
                           </select>
                           <select formControlName="place">
                             <option value="">Place in train</option>
@@ -101,13 +101,15 @@
         </div>
         <div class="place-price">
           <div class="place">
+            <p>Place</p>
             <ng-container *ngFor="let passenger of storedData.passengers; let i = index;">
-              <p>Place : {{ passenger.place }}</p>
+              <p>{{ passenger.place }}</p>
             </ng-container>
           </div>
           <div class="price">
+            <p>Price</p>
             <ng-container *ngFor="let passenger of storedData.passengers; let i = index;">
-              <p>Price : {{ passenger.trainClass }}$</p>
+              <p>{{ passenger.trainClass + '$'}}</p>
             </ng-container>
           </div>
         </div>
@@ -115,12 +117,8 @@
           <p>Full Price : </p>
           <p>{{ amount() }}$</p>
         </div>
-        <div class="rules">
-          <input type="radio">
-          <p>I have read and agree to the rules</p>
-        </div>
         <div class="ticket-register-btn">
-          <button>Ticket Registration</button>
+          <button (click)="ticketRegister()">Ticket Registration</button>
         </div>
       </div>
     </div>
