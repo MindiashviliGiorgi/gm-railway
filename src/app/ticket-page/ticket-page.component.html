@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="ticket-page-main">
-  <div class="ticket">
+  <div class="ticket" #ticket>
     <div class="ticket-header">
       <div class="header-left">
         <h1>GM RAILWAY</h1>
@@ -94,7 +94,7 @@
       </div>
       <div class="payment-right">
         <b>Paid in full</b>
-        <p>{{ storedData.amount }}</p>
+        <p>{{ storedData.amount }}$</p>
       </div>
     </div>
     <div class="rules">
@@ -107,8 +107,10 @@
       </p>
     </div>
   </div>
-  <div class="convert-to-pdf">
-    
+  <div class="convert">
+    <button (click)="generatePdf()">
+      <img src="/assets/images/pdf-icon.png">PDF
+    </button>
   </div>
 </div>
 <app-footer></app-footer>
