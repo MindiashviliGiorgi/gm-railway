@@ -254,25 +254,21 @@
             color: #2e5eb7;
           }
         }
-        .invoice-options {
+        .place-price {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          position: relative;
-          padding-bottom: 5px;
-          p {
-            font-size: 18px;
+          .place,
+          .price {
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            p {
+              font-size: 18px;
+            }
           }
-          .invoice-decore {
-            position: absolute;
-            content: '';
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 0.5px;
-            background-color: #000;
-          }
+
         }
         .total-amount {
           width: 100%;

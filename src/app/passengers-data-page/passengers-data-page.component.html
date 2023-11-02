@@ -67,22 +67,22 @@
                         <div class="passenger-container-down">
                           <select formControlName="trainClass">
                             <option value="">Train Class</option>
-                            <option value="1">I Class</option>
-                            <option value="2">II Class</option>
-                            <option value="3">III Class</option>
+                            <option value="150">I Class</option>
+                            <option value="100">II Class</option>
+                            <option value="50">III Class</option>
                           </select>
                           <select formControlName="place">
                             <option value="">Place in train</option>
-                            <option value="a1">A1</option>
-                            <option value="a2">A2</option>
-                            <option value="a3">A3</option>
-                            <option value="a4">A4</option>
-                            <option value="a5">A5</option>
-                            <option value="b1">B1</option>
-                            <option value="b2">B2</option>
-                            <option value="b3">B3</option>
-                            <option value="b4">B4</option>
-                            <option value="b5">B5</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="A3">A3</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="B3">B3</option>
+                            <option value="B4">B4</option>
+                            <option value="B5">B5</option>
                           </select>
                           <button type="submit">Add Passenger</button>
                         </div>
@@ -99,14 +99,21 @@
         <div class="invoice-title"> 
           <h3>Invoice</h3>
         </div>
-        <div class="invoice-options">
-          <p>Place</p>
-          <p>Price</p>
-          <div class="invoice-decore"></div>
+        <div class="place-price">
+          <div class="place">
+            <ng-container *ngFor="let passenger of storedData.passengers; let i = index;">
+              <p>Place : {{ passenger.place }}</p>
+            </ng-container>
+          </div>
+          <div class="price">
+            <ng-container *ngFor="let passenger of storedData.passengers; let i = index;">
+              <p>Price : {{ passenger.trainClass }}$</p>
+            </ng-container>
+          </div>
         </div>
         <div class="total-amount">
           <p>Full Price : </p>
-          <p>0.00$</p>
+          <p>{{ amount() }}$</p>
         </div>
         <div class="rules">
           <input type="radio">

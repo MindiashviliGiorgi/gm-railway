@@ -11,6 +11,7 @@ export class PassengersDataPageComponent implements OnInit {
   storedData: any = {};
   myForm: FormGroup; // The main form
   addDone : boolean = false;
+  totalAmount : number = 0;
 
   constructor(private formBuilder: FormBuilder) {
     const storedDataString = localStorage.getItem('formData');
@@ -49,6 +50,8 @@ export class PassengersDataPageComponent implements OnInit {
     localStorage.setItem('formData', JSON.stringify(this.storedData));
 
     this.storedData = this.myForm.value;
+
+    this.addActive()
   }
 
   generatePeople(people : number): number[] {
@@ -75,15 +78,50 @@ export class PassengersDataPageComponent implements OnInit {
     localStorage.setItem('formData', JSON.stringify(this.storedData));
     this.storedData = this.myForm.value;
 
-    this.addPassengerInfo(index);
+    setTimeout(() => {
+      // Call the function again after a short delay
+      this.addPassengerInfo(index);
+    }, 0);
   }
   
-
   addActive() {
     this.addDone = true;
     setTimeout(() => {
       this.addDone = false;
     }, 1000)
+  };
+
+
+  amount() {
+    let result = 0;
+    const passengers = this.myForm.get('passengers') as FormArray;
+  
+    passengers.value.forEach((passenger: any) => {
+      const trainClass = parseInt(passenger.trainClass, 10);
+  
+      if (!isNaN(trainClass)) {
+        switch (trainClass) {
+          case 150:
+            result += 150;
+            break;
+          case 100:
+            result += 100;
+            break;
+          case 50:
+            result += 50;
+            break;
+          default:
+            break;
+        }
+      }
+    });
+
+    return result;
   }
+  
+  
+  
+
+
 }
 
