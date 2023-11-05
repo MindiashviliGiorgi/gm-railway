@@ -38,18 +38,20 @@ export class DebitRegistrationPageComponent {
       phoneNumber : [this.storedData.phoneNumber],
       passengers: [this.storedData.passengers],
       amount : [this.storedData.amount],
-      cardNumber : [''],
-      validityPeriod: [''],
-      cvv : [''],
-      cardOwner : [''],
+      cNumber : [''],
+      period: [''],
+      sivi : [''],
+      owner : [''],
       uniqueNumber: [this.randomString],
       releaseDate: [this.newReleaseDate]
     });
 
   }
 
-  ngOnInit():void {
+  ngOnInit():void {}
 
+  reloadPage() {
+    window.location.reload()
   }
 
   addActive() {
@@ -80,24 +82,25 @@ export class DebitRegistrationPageComponent {
   }
 
   ticketPayment(){
-    
-    this.storedData.cardNumber = this.myForm.get('cardNumber')?.value;
-    this.storedData.validityPeriod = this.myForm.get('validityPeriod')?.value;
-    this.storedData.cvv = this.myForm.get('cvv')?.value;
-    this.storedData.cardOwner = this.myForm.get('cardOwner')?.value;
+    this.storedData.uniqueNumber = this.myForm.get('uniqueNumber')?.value;
+    this.storedData.releaseDate = this.myForm.get('releaseDate')?.value;
+    this.storedData.cNumber = this.myForm.get('cNumber')?.value;
+    this.storedData.period = this.myForm.get('period')?.value;
+    this.storedData.sivi = this.myForm.get('sivi')?.value;
+    this.storedData.owner = this.myForm.get('owner')?.value;
 
     localStorage.setItem('formData', JSON.stringify(this.storedData));
 
     this.storedData = this.myForm.value;
 
+    this.addActive();
+
     setTimeout(() => {
-      // this.ticketCreate();
-      this.router.navigate(['/ticketPage']);
+      this.ticketCreate()
+      this.router.navigate(['/ticketPage'])
     }, 500)
 
   }
-  
-
 
   ticketCreate() {
     const tickedData = this.storedData;
@@ -107,7 +110,5 @@ export class DebitRegistrationPageComponent {
       console.log(res)
     })
   }
-  
-  
 
 }

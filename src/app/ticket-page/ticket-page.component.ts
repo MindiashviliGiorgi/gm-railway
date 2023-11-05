@@ -44,7 +44,7 @@ export class TicketPageComponent {
 
   }
   ngOnInit():void {
-    console.log(this.storedData)
+    
   }
   
   generatePdf() {

@@ -1,33 +1,37 @@
 <app-header></app-header>
 <div class="debit-main">
+  <div class="reload-page">
+    <h1>Before you begin payment<br> please reload page for single time</h1>
+    <button (click)="reloadPage()">Reload</button>
+  </div>
   <div class="debit-registration-form">
     <div class="total-amount">
       <h3>Total payable {{ storedData.amount }}.00$</h3>
     </div>
-    <form [formGroup]="myForm" (ngSubmit)="ticketPayment()">
-      <div class="card-number">
-        <input type="number" placeholder="1234 **** **** ****"
-        formControlName="cardNumber">
-      </div>
-      <div class="period-cvv">
-        <div class="period">
-          <p>Validity period</p>
-          <input type="date" formControlName="validityPeriod">
+    <ng-container>
+      <form [formGroup]="myForm" (ngSubmit)="ticketPayment()">
+        <div class="card-number">
+          <input type="number" placeholder="1234 **** **** ****" formControlName="cNumber">
         </div>
-        <div class="cvv">
-          <p>CVC/CVV</p>
-          <input type="number" placeholder="410" formControlName="cvv">
+        <div class="period-cvv">
+          <div class="period">
+            <p>Validity period</p>
+            <input type="date" formControlName="period">
+          </div>
+          <div class="cvv">
+            <p>CVC/CVV</p>
+            <input type="number" placeholder="410" formControlName="sivi">
+          </div>
         </div>
-      </div>
-      <div class="card-owner">
-        <p>Card Owner</p>
-        <input type="text" placeholder="James Svenson"
-        formControlName="cardOwner">
-      </div>
-      <div class="btn">
-        <button type="submit">Pay</button>
-      </div>
-    </form>
+        <div class="card-owner">
+          <p>Card Owner</p>
+          <input type="text" placeholder="James Svenson" formControlName="owner">
+        </div>
+        <div class="btn">
+          <button type="submit">Pay</button>
+        </div>
+      </form>
+    </ng-container>
   </div>
 </div>
 <div class="added" [class.added-animation]="addDone">
