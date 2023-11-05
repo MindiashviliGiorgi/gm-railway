@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,7 +16,7 @@ export class DebitRegistrationPageComponent {
   randomString : string = '';
   newReleaseDate: string = '';
 
-  constructor(private formBuilder : FormBuilder, private router : Router) {
+  constructor(private formBuilder : FormBuilder, private router : Router, private http : HttpClient) {
     const storedDataString = localStorage.getItem('formData');
     if (storedDataString) {
       this.storedData = JSON.parse(storedDataString)
@@ -47,7 +48,9 @@ export class DebitRegistrationPageComponent {
 
   }
 
-  ngOnInit():void {}
+  ngOnInit():void {
+
+  }
 
   addActive() {
     this.addDone = true;
@@ -77,8 +80,7 @@ export class DebitRegistrationPageComponent {
   }
 
   ticketPayment(){
-    this.storedData.releaseDate = this.myForm.get('releaseDate')?.value;
-    this.storedData.uniqueNumber = this.myForm.get('uniqueNumber')?.value;
+    
     this.storedData.cardNumber = this.myForm.get('cardNumber')?.value;
     this.storedData.validityPeriod = this.myForm.get('validityPeriod')?.value;
     this.storedData.cvv = this.myForm.get('cvv')?.value;
@@ -88,13 +90,24 @@ export class DebitRegistrationPageComponent {
 
     this.storedData = this.myForm.value;
 
-    this.addActive()
-
     setTimeout(() => {
+      // this.ticketCreate();
       this.router.navigate(['/ticketPage']);
-    }, 1200)
-  }
+    }, 500)
 
+  }
+  
+
+
+  ticketCreate() {
+    const tickedData = this.storedData;
+    const headers = new HttpHeaders({'myHeader': 'gmrailway'})
+    this.http.post('https://gmrailway-31f58-default-rtdb.europe-west1.firebasedatabase.app/tickets.json', tickedData, {headers: headers})
+    .subscribe((res) => {
+      console.log(res)
+    })
+  }
+  
   
 
 }

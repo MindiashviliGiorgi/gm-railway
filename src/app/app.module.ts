@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PassengersDataPageComponent } from './passengers-data-page/passengers-data-page.component';
 import { DebitRegistrationPageComponent } from './debit-registration-page/debit-registration-page.component';
 import { TicketPageComponent } from './ticket-page/ticket-page.component';
+import { CheckTicketPageComponent } from './check-ticket-page/check-ticket-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TicketPageComponent } from './ticket-page/ticket-page.component';
     RailListPageComponent,
     PassengersDataPageComponent,
     DebitRegistrationPageComponent,
-    TicketPageComponent
+    TicketPageComponent,
+    CheckTicketPageComponent
   ],
   imports: [
     BrowserModule,

@@ -79,12 +79,12 @@ export class PassengersDataPageComponent implements OnInit {
   addPassengerInfo(index: number){
     localStorage.setItem('formData', JSON.stringify(this.storedData));
     this.storedData = this.myForm.value;
-
+    
     setTimeout(() => {
       // Call the function again after a short delay
       this.addPassengerInfo(index);
     }, 0);
-  } 
+  }
 
   addActive() {
     this.addDone = true;

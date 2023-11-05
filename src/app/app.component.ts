@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebase.config';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
   title = 'gm-railway';
+
+  ngOnInit():void {
+    initializeApp(firebaseConfig)
+  }
+
 }

@@ -1,8 +1,8 @@
 <div class="header">
-  <div class="header-left" [routerLink]="'/'">
+  <div class="header-left" (click)="resLocalStorage()" [routerLink]="'/'">
     <h1>GM Railway</h1>
   </div>
   <div class="header-right">
-    <button>Check/Return tickets</button>
+    <button [routerLink]="'/checkTicket'">Check/Return tickets</button>
   </div>
 </div>

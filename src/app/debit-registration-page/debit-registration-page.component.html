@@ -6,22 +6,21 @@
     </div>
     <form [formGroup]="myForm" (ngSubmit)="ticketPayment()">
       <div class="card-number">
-        <p for="cardNumber">Card Number</p>
-        <input type="text" placeholder="**** **** **** ****"
+        <input type="number" placeholder="1234 **** **** ****"
         formControlName="cardNumber">
       </div>
       <div class="period-cvv">
         <div class="period">
-          <p for="period">Validity period</p>
+          <p>Validity period</p>
           <input type="date" formControlName="validityPeriod">
         </div>
         <div class="cvv">
-          <p for="cvv">CVC/CVV</p>
+          <p>CVC/CVV</p>
           <input type="number" placeholder="410" formControlName="cvv">
         </div>
       </div>
       <div class="card-owner">
-        <p for="owner">Card Owner</p>
+        <p>Card Owner</p>
         <input type="text" placeholder="James Svenson"
         formControlName="cardOwner">
       </div>
