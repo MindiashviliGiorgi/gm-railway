@@ -1,6 +1,8 @@
 <app-header></app-header>
 <div class="check-ticket-main">
-  <input type="text" [(ngModel)]="searchValue" (input)="searchTicket()">
+  <div class="ticket-search">
+    <input type="text" [(ngModel)]="searchValue" (input)="searchTicket()" placeholder="Search ticket with unique number">
+  </div>
   <ng-container *ngFor="let ticket of allTickets">
     <ng-container *ngIf="searchValue === ticket.uniqueNumber">
       <div class="ticket">

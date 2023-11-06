@@ -66,3 +66,28 @@
     }
   }
 }
+
+@media (max-width : 1000px) {
+  .reservation-form-main {
+    .form-container {
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+      }
+    }
+  }
+}
+@media (max-width : 500px) {
+  .reservation-form-main {
+    .form-container {
+      form {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 15px;
+        grid-column-gap: 10px;
+      }
+    }
+  }
+}
