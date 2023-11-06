@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { map } from 'rxjs';
 
 @Component({
@@ -45,5 +45,13 @@ export class CheckTicketPageComponent {
     }, 500)
   }
   
+
+  searchValue: string = '';
+
+  searchTextChange : EventEmitter<string> = new EventEmitter<string>();
+
+  searchTicket() {
+    this.searchTextChange.emit(this.searchValue)
+  }
 
 }
