@@ -4,6 +4,8 @@
   display: flex;
   align-items: top;
   justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
   padding: 50px 150px;
   background-color: rgb(240, 255, 255);
   .ticket {
@@ -199,6 +201,28 @@
       .red-p {
         color: #ff3e3e;
       }
+    }
+  }
+  button {
+    background-color: #ff1e00f5;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 200px;
+    height: 35px;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: #bc0505;
+      transition: 0.2s;
+    }
+    &:active {
+      transition: 0s;
+      background-color: #ff1e00f5;
     }
   }
 }

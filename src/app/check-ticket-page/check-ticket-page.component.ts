@@ -14,7 +14,7 @@ export class CheckTicketPageComponent {
   constructor(private http : HttpClient) {}
 
   ngOnInit():void {
-    // this.fetchTickets()
+    this.fetchTickets();
   }
 
   onFetchTickets() {
@@ -33,9 +33,17 @@ export class CheckTicketPageComponent {
       return tickets
     }))
     .subscribe((tickets) => {
-      console.log(tickets)
       this.allTickets = tickets;
     })
   }
+
+  deleteTicket(id : string) {
+    this.http.delete('https://gmrailway-31f58-default-rtdb.europe-west1.firebasedatabase.app/tickets/' + id + '.json')
+    .subscribe();
+    setTimeout(() => {
+      window.location.reload()
+    }, 500)
+  }
+  
 
 }
