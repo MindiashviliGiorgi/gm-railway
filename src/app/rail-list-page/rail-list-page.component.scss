@@ -108,3 +108,147 @@
     }
   }
 }
+
+@media (max-width : 1235px) {
+  .rail-list-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 20px 50px;
+    }
+  }
+}
+@media (max-width : 920px) {
+  .rail-list-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 20px 50px;
+      .section-title {
+        .title-down {
+          ul {
+            column-gap: 10px;
+          }
+        }
+      }
+      .section-list {
+        ul {
+          column-gap: 10px;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 730px) {
+  .rail-list-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 20px 20px;
+      .section-title {
+        .title-down {
+          ul {
+            column-gap: 10px;
+            li {
+              p {
+                font-size: 16px;
+                letter-spacing: 0px;
+              }
+            }
+          }
+        }
+      }
+      .section-list {
+        ul {
+          column-gap: 10px;
+          li {
+            p {
+              font-size: 15px;
+              letter-spacing: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 570px) {
+  .rail-list-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 20px 10px;
+      .section-title {
+        .title-down {
+          ul {
+            column-gap: 0px;
+            li {
+              p {
+                font-size: 13px;
+                letter-spacing: 0px;
+              }
+            }
+          }
+        }
+      }
+      .section-list {
+        ul {
+          column-gap: 0px;
+          li {
+            p {
+              font-size: 14px;
+              letter-spacing: 0px;
+            }
+            button {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 445px) {
+  .rail-list-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 20px 10px;
+      .section-title {
+        .title-down {
+          padding: 10px;
+          ul {
+            column-gap: 0px;
+            li {
+              p {
+                font-size: 13px;
+                letter-spacing: 0px;
+              }
+            }
+          }
+        }
+      }
+      .section-list {
+        ul {
+          column-gap: 0px;
+          padding: 10px 10px;
+          li {
+            p {
+              font-size: 14px;
+              letter-spacing: 0px;
+            }
+            button {
+              font-size: 13px;
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
