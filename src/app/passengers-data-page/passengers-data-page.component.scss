@@ -55,25 +55,6 @@
             list-style: none;
             width: 100%;
             flex: 1;
-            button {
-              background-color: #294985;
-              color: #fff;
-              border: none;
-              outline: none;
-              padding: 5px 10px;
-              font-size: 16px;
-              border-radius: 4px;
-              cursor: pointer;
-              transition: 0.2s;
-              &:hover {
-                background-color: #2e5eb7;
-                transition: 0.2s;
-              }
-              &:active {
-                transition: 0s;
-                background-color: #294985;
-              }
-            }
             .list-info {
               display: flex;
               flex-direction: column;
@@ -390,3 +371,199 @@
   }
 }
 
+
+@media (max-width : 1235px) {
+  .passenger-data-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      padding: 30px 50px;
+      .section-right {
+        width: 300px;
+        .invoice-main {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 1030px) {
+  .passenger-data-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      flex-direction: column;
+      row-gap: 20px;
+      padding: 30px 50px;
+      .section-left {
+        width: 100%;
+        .contact-form-main {
+          .contact-form-body {
+            width: 100%;
+            form {
+              display: flex;
+              flex-direction: row;
+              column-gap: 20px;
+              align-items: center;
+              justify-content: left;
+            }
+          }
+        }
+      }
+      .section-right {
+        width: 100%;
+        height: auto;
+        .invoice-main {
+          padding: 20px 100px;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 790px) {
+  .passenger-data-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      flex-direction: column;
+      row-gap: 20px;
+      padding: 30px 50px;
+      .section-left {
+        width: 100%;
+        .contact-form-main {
+          display: flex;
+          align-items: top;
+          justify-content: left;
+          .contact-form-body {
+            width: 100%;
+            display: flex;
+            align-items: top;
+            justify-content: flex-start;
+            form {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              row-gap: 10px;
+              column-gap: 20px;
+              align-items: top;
+              justify-content: left;
+              input {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .passengers-information-main {
+          .passengers-information-form {
+            form {
+              .passenger-container {
+                .passenger-container-up,
+                .passenger-container-down {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 10px;
+                  justify-content: flex-start;
+                  input {
+                    width: 100%; 
+                  }
+                  select {
+                    width: 100%;
+                  }
+                  
+                }
+              }
+            }
+          }
+        }
+      }
+      .section-right {
+        width: 100%;
+        height: auto;
+        .invoice-main {
+          padding: 20px 100px;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 570px) {
+  .passenger-data-main {
+    .title {
+      padding: 20px 50px;
+    }
+    .section {
+      flex-direction: column;
+      row-gap: 20px;
+      padding: 30px 50px;
+      .section-left {
+        width: 100%;
+        .details {
+          ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            li {
+              width: 50px;
+              flex: 0;
+            }
+          }
+        }
+        .contact-form-main {
+          display: flex;
+          align-items: top;
+          justify-content: left;
+          .contact-form-body {
+            width: 100%;
+            display: flex;
+            align-items: top;
+            justify-content: flex-start;
+            form {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              row-gap: 10px;
+              column-gap: 20px;
+              align-items: top;
+              justify-content: left;
+              input {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .passengers-information-main {
+          .passengers-information-form {
+            form {
+              .passenger-container {
+                .passenger-container-up,
+                .passenger-container-down {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 10px;
+                  justify-content: flex-start;
+                  input {
+                    width: 100%; 
+                  }
+                  select {
+                    width: 100%;
+                  }
+                  
+                }
+              }
+            }
+          }
+        }
+      }
+      .section-right {
+        width: 100%;
+        height: auto;
+        .invoice-main {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
