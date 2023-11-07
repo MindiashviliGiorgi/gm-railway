@@ -211,3 +211,29 @@
     opacity: 0;
   }
 }
+
+@media (max-width : 1235px) {
+  .debit-main {
+    padding: 10px 50px 40px 50px;
+  }
+}
+@media (max-width : 500px) {
+  .debit-main {
+    padding: 10px 50px 40px 50px;
+    .reload-page {
+      h1 {
+        font-size: 20px;
+      }
+    }
+    .debit-registration-form {
+      padding: 20px;
+      form {
+        .period-cvv {
+          display: flex;
+          flex-direction: column;
+          row-gap: 20px;
+        }
+      }
+    }
+  }
+}
