@@ -244,3 +244,181 @@
     }
   }
 }
+
+@media (max-width : 1235px) {
+  .check-ticket-main {
+    padding: 50px;
+  }
+}
+@media (max-width : 1140px) {
+  .check-ticket-main {
+    padding: 50px;
+    .ticket {
+      .passengers {
+        .passengers-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+          grid-row-gap: 20px;
+          grid-column-gap: 20px;
+          .passsenger {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 870px) {
+  .check-ticket-main {
+    padding: 50px;
+    .ticket {
+      .departure-sunset-date {
+        flex-direction: column;
+        row-gap: 5px;
+        .decore {
+          display: none;
+        }
+        .departure,
+        .sunset,
+        .start-date {
+          padding: 5px;
+        }
+      }
+      .contact-information {
+        display: flex;
+        .email-phone-number {
+          display: flex;
+          flex-direction: column;
+          row-gap: 0px;
+          .email,
+          .phone-number {
+            width: 100%;
+            padding: 5px 0px;
+          }
+          .decore {
+            display: none;
+          }
+        }
+      }
+      .passengers {
+        .passengers-list {
+          width: 100%;
+          display: flex;
+          .passsenger {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 650px) {
+  .check-ticket-main {
+    .ticket {
+      padding: 40px 10px;
+      .unique-number-date {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        width: 100%;
+        p {
+          width: 100%;
+          text-align: left;
+          font-size: 15px;
+          b {
+            font-size: 14px;
+          }
+        }
+      }
+      .departure-sunset-date {
+        flex-direction: column;
+        row-gap: 5px;
+        .decore {
+          display: none;
+        }
+        .departure,
+        .sunset,
+        .start-date {
+          padding: 5px;
+          p {
+            font-size: 15px;
+          }
+          b {
+            font-size: 14px;
+          }
+        }
+      }
+      .contact-information {
+        display: flex;
+        .email-phone-number {
+          display: flex;
+          flex-direction: column;
+          row-gap: 0px;
+          .email,
+          .phone-number {
+            width: 100%;
+            padding: 5px 0px;
+            p {
+              font-size: 15px;
+            }
+            b {
+              font-size: 14px;
+            }
+          }
+          .decore {
+            display: none;
+          }
+        }
+      }
+      .passengers {
+        .passengers-list {
+          width: 100%;
+          display: flex;
+          .passsenger {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            width: auto;
+            .first-name,
+            .last-name,
+            .personal-number,
+            .place,
+            .train-class {
+              p {
+                font-size: 15px;
+              }
+              b {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+      .payment-info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        .payment-left,
+        .payment-right {
+          b {
+            font-size: 14px;
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+      .rules {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
